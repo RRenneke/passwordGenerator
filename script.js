@@ -5,17 +5,28 @@ var inputNumber;
 var inputSpecial;
 
 //variables arrays with the different options
-var inputLower = ["a","b","c","d","e","f","g","h","i","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"];
-var inputUpper = ["A","B ","C","D","E","F","G","H","J","K","M","N","P","Q","R","S","T","U","V","W","X","Y","Z",];
-var inputNumber =["2","3","4","5","6","7","8","9",];
-var inputSpecial =["!", "@","#","$","%","&","*","?","+"];
+var Lower = ["a","b","c","d","e","f","g","h","i","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"];
+var Upper = ["A","B ","C","D","E","F","G","H","J","K","M","N","P","Q","R","S","T","U","V","W","X","Y","Z",];
+var Number =["2","3","4","5","6","7","8","9",];
+var Special =["!", "@","#","$","%","&","*","?","+"];
 
-console.log(inputLower[3]);
-console.log(inputNumber[2]);
-console.log(inputSpecial[4]);
-
-
-// Assignment Code
+// Function to get variable selection
+function getRandomLower(){
+  var Lower = ["a","b","c","d","e","f","g","h","i","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"];
+  return Lower[Math.floor(Math.random() * Lower.length)];
+}
+function getRandomUpper(){
+  var Upper = ["A","B ","C","D","E","F","G","H","J","K","M","N","P","Q","R","S","T","U","V","W","X","Y","Z",];
+  return Upper[Math.floor(Math.random() * Upper.length)];
+}
+function getRandomNumber(){
+  var Number =["2","3","4","5","6","7","8","9",];
+  return Number[Math.floor(Math.random() * Number.length)];
+}
+function getRandomSpecial(){
+  var Special =["!", "@","#","$","%","&","*","?","+"];
+  return Special[Math.floor(Math.random() * Special.length)];
+}
 var generateBtn = document.querySelector("#generate");
 
 function writePassword() {
@@ -29,11 +40,11 @@ generateBtn.addEventListener("click", generatePassword);
 
 // Start function to generate password
 function generatePassword() {
-      enter = parseInt(prompt("Between 8 to 128, how many characters would you like your password?"));
+      enter = parseInt(prompt("Between 8 and 128, how many characters would you want your password?"));
       if (!enter) {
-          alert("This needs a value");
+          alert("Enter a number between 8 and 128");
       } else if (enter < 8 || enter > 128) {
-          enter = parseInt(prompt("You must choose between 8 and 128"));
+          enter = parseInt(prompt("Number must be between 8 and 128"));
   
       } else {
           inputNumber = confirm("Do you want numbers?");
