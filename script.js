@@ -1,63 +1,76 @@
+//variable for the generate button
 var generateBtn = document.querySelector("#generate");
 
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var arrLower = lowerCase.split(" ");
-var arrUpper = lowerCase.toUpperCase().split(" ");
+
+//variables for characters. splits makes it it's own index.
+var arrLower = "abcdefghijklmnopqrstuvwxyz".split("");
+var arrUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var arrNumber = "0123456789".split(" ");
 var arrSpecial = "!@#$%^&*()".split(" ");
 
+//function to generate a password
 function generatePassword ()
+
+//users criteria
 {
     var length = prompt("Between 8 and 128, how long do you want the password?");
+      if (length < 8 || length > 128){
+        alert("Must be between 8 and 128 charactes.");
+        return;
+      }
     var inputNumber = confirm("Do you want numbers?");
     var inputSpecial = confirm("Do you want special characters?");
     var inputUpper = confirm("Do you want uppercase letters?");
     var inputLower = confirm("Do you want lowercase letters?");
 
+    //starting empty variable for the password
     var password = "";
-
+    
+    //starting empty array for the criteria input
     var characterArr =[];
+
+    //converts user input to a number 
     var passwordLength = parseInt(length);
 
 // Input Possibilites for password
         if (inputNumber && inputSpecial && inputUpper){
-            characterArr = characterArr.concat(arrNumber,arrSpecial,arrUpper);
+            characterArr = characterArr.concat(arrNumber,arrSpecial,arrUpper)
         }
         if (inputNumber && inputSpecial && inputLower) {
-            characterArr = characterArr.concat(arrNumber,arrSpecial,arrLower);
+            characterArr = characterArr.concat(arrNumber,arrSpecial,arrLower)
         }
         if (inputSpecial && inputUpper && inputLower){
-            characterArr = characterArr.concat(arrSpecial,arrUpper, arrLower);
+            characterArr = characterArr.concat(arrSpecial,arrUpper, arrLower)
         }
         if (inputNumber && inputSpecial){
-            characterArr = characterArr.concat(arrNumber,arrSpecial);
+            characterArr = characterArr.concat(arrNumber,arrSpecial)
         }
         if (inputNumber && inputUpper){
-            characterArr = characterArr.concat(arrNumber,arrUpper);
+            characterArr = characterArr.concat(arrNumber,arrUpper)
         }
         if (inputNumber && inputLower){
-            characterArr = characterArr.concat(arrNumber,arrLower);
+            characterArr = characterArr.concat(arrNumber,arrLower)
         }
         if (inputSpecial && inputUpper){
-            characterArr = characterArr.concat(arrSpecial,arrUpper);
+            characterArr = characterArr.concat(arrSpecial,arrUpper)
         }
         if (inputSpecial && inputLower){
-            characterArr = characterArr.concat(arrSpecial, arrLower);
+            characterArr = characterArr.concat(arrSpecial, arrLower)
         }
         if (inputUpper && inputLower) {
-            characterArr = characterArr.concat(arrUpper,arrLower);
+            characterArr = characterArr.concat(arrUpper,arrLower)
         }
         if(inputUpper){
-            characterArr = characterArr.concat(arrUpper);
+            characterArr = characterArr.concat(arrUpper)
         }
         if(inputLower){
-            characterArr = characterArr.concat(arrLower);
+            characterArr = characterArr.concat(arrLower)
         }
         if(inputSpecial){
-            characterArr =characterArr.concat(arrSpecial);
+            characterArr =characterArr.concat(arrSpecial)
         }
         if(inputNumber){
-            characterArr = characterArr.concat(arrNumber);
+            characterArr = characterArr.concat(arrNumber)
         }
 
 for (var i = 0; i < passwordLength; i++)
