@@ -17,7 +17,7 @@ function generatePassword ()
     var password = "";
 
     var characterArr =[];
-    var passwrodLength = parseInt(length);
+    var passwordLength = parseInt(length);
 
 // Input Possibilites for password
         if (inputNumber && inputSpecial && inputUpper){
@@ -67,6 +67,7 @@ for (var i = 0; i < passwordLength; i++)
     }
 
 return password;
+}
 
 function writePassword() 
     {
@@ -74,7 +75,7 @@ function writePassword()
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
     }
-}
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
