@@ -5,8 +5,8 @@ var generateBtn = document.querySelector("#generate");
 //variables for characters. splits makes it it's own index.
 var arrLower = "abcdefghijklmnopqrstuvwxyz".split("");
 var arrUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-var arrNumber = "0123456789".split(" ");
-var arrSpecial = "!@#$%^&*()".split(" ");
+var arrNumber = "0123456789".split("");
+var arrSpecial = "!@#$%^&*()".split("");
 
 //function to generate a password
 function generatePassword ()
@@ -18,10 +18,12 @@ function generatePassword ()
         alert("Must be between 8 and 128 charactes.");
         return;
       }
+      else {
     var inputNumber = confirm("Do you want numbers?");
     var inputSpecial = confirm("Do you want special characters?");
     var inputUpper = confirm("Do you want uppercase letters?");
     var inputLower = confirm("Do you want lowercase letters?");
+      }
 
     //starting empty variable for the password
     var password = "";
@@ -73,25 +75,28 @@ function generatePassword ()
             characterArr = characterArr.concat(arrNumber)
         }
 
-for (var i = 0; i < passwordLength; i++)
-    {
-    var random = Math.floor(Math.random() * characterArr.length);
-    password += characterArr[random];
-    }
+    //for loop for length        
+    for (var i = 0; i < passwordLength; i++) {
+    var randomChoice = Math.floor(Math.random() * characterArr.length);
+    //password equals the random index from the Arr variables
+    password += characterArr[randomChoice];
 
-return password;
+  }
+  return password;
+  //returns finished password
 }
 
-function writePassword() 
-    {
+//function to print password to page
+function populatePassword() {
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
+    //put password as text value
     passwordText.value = password;
     }
 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", populatePassword);
 
 
 
